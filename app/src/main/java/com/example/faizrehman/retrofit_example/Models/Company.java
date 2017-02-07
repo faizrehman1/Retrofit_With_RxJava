@@ -1,4 +1,4 @@
-package com.example.faizrehman.retrofit_example;
+package com.example.faizrehman.retrofit_example.Models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.example.faizrehman.retrofit_example;
+package com.example.faizrehman.retrofit_example.Constants;
 
 /**
  * Created by faizrehman on 01/02/2017.

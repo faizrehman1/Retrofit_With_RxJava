@@ -1,5 +1,7 @@
-package com.example.faizrehman.retrofit_example;
+package com.example.faizrehman.retrofit_example.Models;
 
+import com.example.faizrehman.retrofit_example.Models.Address;
+import com.example.faizrehman.retrofit_example.Models.Company;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

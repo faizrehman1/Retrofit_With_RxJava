@@ -4,16 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.example.faizrehman.retrofit_example.Connection.Services;
+import com.example.faizrehman.retrofit_example.Models.UserModel;
+
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import rx.Observable;
 import rx.Observer;
-import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
 
         Services interfacess = Services.retrofit.create(Services.class);
        // with Java
@@ -52,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         //with RxJava
-        Observable<UserModel> userModelObservable = interfacess.getUser();
+        Observable<List<UserModel>> userModelObservable = interfacess.getUser();
        userModelObservable.subscribeOn(Schedulers.newThread())
                .observeOn(AndroidSchedulers.mainThread())
-               .subscribe(new Observer<UserModel>() {
+               .subscribe(new Observer<List<UserModel>>() {
                               @Override
                               public void onCompleted() {
 
@@ -67,12 +60,11 @@ public class MainActivity extends AppCompatActivity {
                               }
 
                               @Override
-                              public void onNext(UserModel userModel) {
-                                  Log.d("TAG",userModel.getEmail());
+                              public void onNext(List<UserModel> userModels) {
+                                    Log.d("TAG: FAiz",userModels.toString());
+
                               }
                           });
-
-
                        //for Single index of user
 //                       Services singleinterface = Services.getRetrofit.create(Services.class);
 //       //
